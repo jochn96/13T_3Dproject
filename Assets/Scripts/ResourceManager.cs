@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class ResourceManager : MonoBehaviour
     public Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
 
     [Header("UI")]
-    public Text woodText;
-    public Text rockText;
+    public TMP_Text woodText;
+    public TMP_Text rockText;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class ResourceManager : MonoBehaviour
 
     public void AddResource(ResourceType type, int amount)
     {
+        Debug.Log("자원증가중");
         resources[type] += amount;
         UpdateUI();
     }
@@ -52,6 +54,6 @@ public class ResourceManager : MonoBehaviour
         if (woodText != null)
             woodText.text = $"Wood: {resources[ResourceType.Wood]}";
         if (rockText != null)
-            rockText.text = $"Rock: {resources[ResourceType.Rock]}";
+            rockText.text = $"Stone: {resources[ResourceType.Stone]}";
     }
 }
